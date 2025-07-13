@@ -1,15 +1,17 @@
-import Image from "next/image";
-import footer from '@/assets/foot.png';
+import Image from 'next/image'
+import React from 'react'
 
-export default function Footer() {
+const Footer = () => {
   return (
     <div className="relative w-full h-[100px] sm:h-[200px]">
       <Image 
-        src={footer}
+        src="/assets/foot.png"
         alt="Banner"
         fill  
         className="object-cover"
       />
     </div>
-  );
+  )
 }
+
+export default Footer

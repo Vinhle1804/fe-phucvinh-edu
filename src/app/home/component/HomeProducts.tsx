@@ -4,8 +4,8 @@ import { products } from '@/data/products'
 
 export default function HomeProducts() {
   return (
-    <div className='max-w-[1200px] mx-auto '>
-      <h1>HomeProduct</h1>
+    <div className='max-w-[1200px] mx-auto py-8'>
+      <h1 className='flex justify-center text-3xl uppercase font-bold'>San pham cua chung toi</h1>
       <div></div>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {products.map((product) => (

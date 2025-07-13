@@ -3,7 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Clock, FileText, Users, BookOpen, Infinity } from "lucide-react";
-import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from "@/components/ui/hover-card";
 import { IProduct } from "@/data/products";
 
 interface ProductCardProps {
@@ -11,12 +15,16 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  // ✅ Destructure ra cho gọn
+  const { lessonsCount, hoursCount, studentsCount, exercisesCount } = product.infoCourse;
+
   return (
-    <HoverCard>
+    <HoverCard openDelay={0} closeDelay={0}>
       <HoverCardTrigger asChild>
         <div
+          tabIndex={0}
           className="max-w-sm mt-8 bg-white rounded-xl shadow-lg overflow-hidden
-          transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+          transition-transform duration-300 hover:scale-105 hover:shadow-2xl focus:scale-105 focus:shadow-2xl cursor-pointer outline-none"
         >
           {/* Image */}
           <div className="relative h-64">
@@ -46,11 +54,11 @@ export default function ProductCard({ product }: ProductCardProps) {
             <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
               <div className="flex items-center gap-1">
                 <FileText className="w-4 h-4" />
-                <span>{product.lessonsCount} bài giảng</span>
+                <span>{lessonsCount} bài giảng</span>
               </div>
               <div className="flex items-center gap-1">
                 <Clock className="w-4 h-4" />
-                <span>{product.hoursCount} giờ</span>
+                <span>{hoursCount} giờ</span>
               </div>
             </div>
 
@@ -66,7 +74,11 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </HoverCardTrigger>
 
-      <HoverCardContent side="right" align="center" className="w-100 h-auto p-6 bg-white border border-gray-200 rounded-xl shadow-xl">
+      <HoverCardContent
+        side="right"
+        align="center"
+        className="w-100 h-auto p-6 bg-white border border-gray-200 rounded-xl shadow-xl"
+      >
         <div className="flex gap-2 mb-4">
           <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded-full">
             -{product.discountPercent}%
@@ -80,19 +92,19 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="grid grid-cols-2 gap-3 mb-4 text-sm">
           <div className="flex items-center gap-2 text-gray-600">
             <FileText className="w-4 h-4" />
-            <span>{product.lessonsCount} bài giảng</span>
+            <span>{lessonsCount} bài giảng</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600">
             <Clock className="w-4 h-4" />
-            <span>{product.hoursCount} giờ</span>
+            <span>{hoursCount} giờ</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600">
             <Users className="w-4 h-4" />
-            <span>{product.studentsCount} học viên</span>
+            <span>{studentsCount} học viên</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600">
             <BookOpen className="w-4 h-4" />
-            <span>{product.exercisesCount} bài tập</span>
+            <span>{exercisesCount} bài tập</span>
           </div>
         </div>
 

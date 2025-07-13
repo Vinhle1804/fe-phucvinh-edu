@@ -6,20 +6,20 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious
-} from './ui/carousel'
+} from '../../../components/ui/carousel'
 
-import slide1 from '@/assets/carousel/carousel1.jpg'
-import slide2 from '@/assets/carousel/carousel2.jpg'
-import slide3 from '@/assets/carousel/crs3.jpeg'
-import slide4 from '@/assets/carousel/crs4.jpeg'
+import slide1 from '../../../../public/assets/carousel/carousel1.jpg'
+import slide2 from '../../../../public/assets/carousel/carousel2.jpg'
+import slide3 from '../../../../public/assets/carousel/crs3.jpeg'
+import slide4 from '../../../../public/assets/carousel/crs4.jpeg'
 
 const slidesDesktop = [slide1, slide2]
 const slidesMobile = [slide3, slide4]
 
 export default function CarouselPage() {
   return (
-    <div className="pt-[60px] container mx-auto">
-      <Carousel className="hidden md:block w-full max-w-[1200px] mx-auto relative">
+    <div className="pt-2 container mx-auto">
+      <Carousel className="hidden md:block w-full max-w-[1200px] mx-auto relative rounded-lg overflow-hidden">
         <CarouselContent>
           {slidesDesktop.map((src, index) => (
             <CarouselItem

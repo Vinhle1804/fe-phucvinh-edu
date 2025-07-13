@@ -24,7 +24,7 @@ export default function MobileNav() {
         <button className="p-2 border rounded">☰</button>
       </SheetTrigger>
 
-      <SheetContent side="right" className="p-4">
+      <SheetContent side="left" className="p-4">
         <SheetHeader>
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
@@ -43,7 +43,7 @@ export default function MobileNav() {
                   </span>
                 )}
               </div>
-                 <div className="h-[1px] bg-red-600 w-full"></div>
+              <div className="h-[1px] bg-red-600 w-full"></div>
 
               {menu.children && openMenuId === menu.id && (
                 <ul className="ml-4 mt-2 space-y-1">
@@ -51,8 +51,7 @@ export default function MobileNav() {
                     <li key={child.id}>
                       <Link href={child.path ?? "/"} className="block ">
                         {child.label}
-                 <div className="h-[1px] bg-black w-full"></div>
-
+                        <div className="h-[1px] bg-black w-full"></div>
                       </Link>
                     </li>
                   ))}
@@ -61,7 +60,6 @@ export default function MobileNav() {
             </li>
           ))}
         </ul>
-        
       </SheetContent>
     </Sheet>
   );

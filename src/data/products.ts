@@ -1,180 +1,203 @@
-export interface IProduct {
-  id: string;                  
-  name: string;                
-  price: number;               
-  discountPercent: number;     
-  finalPrice: number;         
-  imageUrl: string;            
-  shortDescription: string;   
-  longDescription: string;    
-  lessonsCount: number;      
-  hoursCount: number;          
-  studentsCount: number;       
-  exercisesCount: number;      
-  isFavorite: boolean;         
-  tags?: string[];            
-}
+export type InfoCourse = {
+  lessonsCount: number;   // Số bài giảng
+  hoursCount: number;     // Số giờ học
+  studentsCount: number;  // Số học viên
+  exercisesCount: number; // Số bài tập
+};
 
+export interface IProduct {
+  id: string;                  // ID duy nhất
+  name: string;                // Tên sản phẩm / khoá học
+  price: number;               // Giá gốc
+  discountPercent: number;     // % giảm giá
+  finalPrice: number;          // Giá sau giảm
+  imageUrl: string;            // Ảnh khoá học
+  shortDescription: string;    // Mô tả ngắn
+  longDescription: string;     // Mô tả dài
+  infoCourse: InfoCourse;      // Nhóm thông tin bài giảng
+  isFavorite: boolean;         // Đánh dấu yêu thích
+  tags?: string[];             // Các tag (tùy chọn)
+} 
 
 export const products: IProduct[] = [
   {
     id: "1",
-    name: "Khóa học Lập trình C cơ bản",
-    price: 2750000,
-    discountPercent: 64,
-    finalPrice: 999000,
-    imageUrl: "/assets/c-course.png",
-    shortDescription: "170 bài giảng, 350 bài tập, update 2024.",
-    longDescription: "Khóa học C cơ bản từ A-Z, phù hợp cho người mới bắt đầu, hỗ trợ trọn đời.",
-    lessonsCount: 170,
-    hoursCount: 150,
-    studentsCount: 2060,
-    exercisesCount: 350,
+    name: "React Masterclass",
+    price: 1000000,
+    discountPercent: 20,
+    finalPrice: 800000,
+    imageUrl: "/images/react.jpg",
+    shortDescription: "Học React từ cơ bản đến nâng cao",
+    longDescription: "Khóa học React đầy đủ: JSX, Hooks, Context, Router, Redux...",
+    infoCourse: {
+      lessonsCount: 50,
+      hoursCount: 40,
+      studentsCount: 1200,
+      exercisesCount: 20,
+    },
     isFavorite: false,
-    tags: ["C", "Beginner", "Online"]
+    tags: ["React", "Frontend", "JavaScript"],
   },
   {
     id: "2",
-    name: "Khóa học Lập trình Python",
-    price: 3200000,
-    discountPercent: 50,
-    finalPrice: 1600000,
-    imageUrl: "/assets/python-course.png",
-    shortDescription: "120 bài giảng Python từ cơ bản đến nâng cao.",
-    longDescription: "Python toàn diện: syntax, OOP, project thực tế, automation, data.",
-    lessonsCount: 120,
-    hoursCount: 100,
-    studentsCount: 3400,
-    exercisesCount: 200,
-    isFavorite: true,
-    tags: ["Python", "Beginner", "Data"]
+    name: "Vue 3 Essentials",
+    price: 900000,
+    discountPercent: 15,
+    finalPrice: 765000,
+    imageUrl: "/images/vue.jpg",
+    shortDescription: "Học Vue 3 Composition API dễ hiểu",
+    longDescription: "Nắm vững Vue 3, Composition API, Vue Router, Vuex, Pinia...",
+    infoCourse: {
+      lessonsCount: 45,
+      hoursCount: 35,
+      studentsCount: 900,
+      exercisesCount: 15,
+    },
+    isFavorite: false,
+    tags: ["Vue", "Frontend"],
   },
   {
     id: "3",
-    name: "Khóa học ReactJS từ cơ bản",
-    price: 3500000,
-    discountPercent: 40,
-    finalPrice: 2100000,
-    imageUrl: "/assets/react-course.png",
-    shortDescription: "ReactJS từ cơ bản tới Redux, Hooks, NextJS.",
-    longDescription: "Học ReactJS step-by-step: JSX, state, props, router, project thực tế.",
-    lessonsCount: 80,
-    hoursCount: 60,
-    studentsCount: 4100,
-    exercisesCount: 120,
+    name: "Next.js & TailwindCSS",
+    price: 1200000,
+    discountPercent: 25,
+    finalPrice: 900000,
+    imageUrl: "/images/next-tailwind.jpg",
+    shortDescription: "Xây web hiện đại với Next.js & TailwindCSS",
+    longDescription: "Tạo web tối ưu SEO, SSR, API routes, thiết kế Tailwind đẹp mắt.",
+    infoCourse: {
+      lessonsCount: 60,
+      hoursCount: 45,
+      studentsCount: 1500,
+      exercisesCount: 25,
+    },
     isFavorite: false,
-    tags: ["ReactJS", "Frontend", "Web"]
+    tags: ["Next.js", "TailwindCSS", "React"],
   },
   {
     id: "4",
-    name: "Khóa học NodeJS & Express",
-    price: 3000000,
-    discountPercent: 35,
-    finalPrice: 1950000,
-    imageUrl: "/assets/node-course.png",
-    shortDescription: "Từ API RESTful tới MongoDB, project backend.",
-    longDescription: "NodeJS + Express: tạo API, auth, CRUD, deploy Heroku.",
-    lessonsCount: 70,
-    hoursCount: 50,
-    studentsCount: 2500,
-    exercisesCount: 80,
+    name: "Node.js Backend",
+    price: 950000,
+    discountPercent: 10,
+    finalPrice: 855000,
+    imageUrl: "/images/node.jpg",
+    shortDescription: "Học Node.js + Express chuyên nghiệp",
+    longDescription: "Xây REST API, JWT Auth, CRUD, kết nối MongoDB, triển khai Heroku.",
+    infoCourse: {
+      lessonsCount: 40,
+      hoursCount: 30,
+      studentsCount: 800,
+      exercisesCount: 18,
+    },
     isFavorite: false,
-    tags: ["NodeJS", "Backend", "API"]
+    tags: ["Node.js", "Backend", "API"],
   },
   {
     id: "5",
-    name: "Khóa học HTML CSS Pro",
+    name: "Fullstack MERN",
     price: 1500000,
-    discountPercent: 20,
-    finalPrice: 1200000,
-    imageUrl: "/assets/html-css.png",
-    shortDescription: "HTML5, CSS3, responsive, Flexbox, Grid.",
-    longDescription: "Học từ cơ bản tới layout nâng cao, animation, responsive web.",
-    lessonsCount: 60,
-    hoursCount: 40,
-    studentsCount: 3000,
-    exercisesCount: 100,
+    discountPercent: 30,
+    finalPrice: 1050000,
+    imageUrl: "/images/mern.jpg",
+    shortDescription: "React, Node.js, Express & MongoDB",
+    longDescription: "Học cách build ứng dụng MERN Fullstack: CRUD, Auth, Deploy.",
+    infoCourse: {
+      lessonsCount: 70,
+      hoursCount: 50,
+      studentsCount: 2000,
+      exercisesCount: 30,
+    },
     isFavorite: false,
-    tags: ["HTML", "CSS", "Frontend"]
+    tags: ["MERN", "Fullstack", "React"],
   },
   {
     id: "6",
-    name: "Khóa học Java Spring Boot",
-    price: 4200000,
-    discountPercent: 50,
-    finalPrice: 2100000,
-    imageUrl: "/assets/spring-boot.png",
-    shortDescription: "Java Core + Spring Boot + REST API + JWT.",
-    longDescription: "Spring Boot từ zero, kết nối database, bảo mật, deploy.",
-    lessonsCount: 100,
-    hoursCount: 80,
-    studentsCount: 1900,
-    exercisesCount: 150,
-    isFavorite: true,
-    tags: ["Java", "Spring Boot", "Backend"]
+    name: "Java Spring Boot",
+    price: 1100000,
+    discountPercent: 20,
+    finalPrice: 880000,
+    imageUrl: "/images/spring.jpg",
+    shortDescription: "Xây dựng RESTful API với Spring Boot",
+    longDescription: "Spring Boot, Hibernate, MySQL, JWT, Security, Deployment.",
+    infoCourse: {
+      lessonsCount: 55,
+      hoursCount: 42,
+      studentsCount: 1300,
+      exercisesCount: 22,
+    },
+    isFavorite: false,
+    tags: ["Java", "Spring Boot", "Backend"],
   },
   {
     id: "7",
-    name: "Khóa học SQL & Database",
-    price: 2000000,
-    discountPercent: 30,
-    finalPrice: 1400000,
-    imageUrl: "/assets/sql-course.png",
-    shortDescription: "MySQL, PostgreSQL, query, index, performance.",
-    longDescription: "Tạo bảng, query join, view, stored procedure, tối ưu DB.",
-    lessonsCount: 50,
-    hoursCount: 40,
-    studentsCount: 2300,
-    exercisesCount: 90,
+    name: "Python Django",
+    price: 1000000,
+    discountPercent: 15,
+    finalPrice: 850000,
+    imageUrl: "/images/django.jpg",
+    shortDescription: "Tạo web với Python Django Framework",
+    longDescription: "Django Models, Views, Templates, REST API, Auth, Admin Panel.",
+    infoCourse: {
+      lessonsCount: 50,
+      hoursCount: 38,
+      studentsCount: 1100,
+      exercisesCount: 20,
+    },
     isFavorite: false,
-    tags: ["SQL", "Database", "Data"]
+    tags: ["Python", "Django", "Backend"],
   },
   {
     id: "8",
-    name: "Khóa học Data Structures",
-    price: 2500000,
-    discountPercent: 50,
-    finalPrice: 1250000,
-    imageUrl: "/assets/data-structures.png",
-    shortDescription: "Stack, Queue, Linked List, Tree, Graph.",
-    longDescription: "Giải thuật cơ bản, visual code, bài tập coding practice.",
-    lessonsCount: 80,
-    hoursCount: 60,
-    studentsCount: 1200,
-    exercisesCount: 110,
+    name: "SQL & Database Design",
+    price: 700000,
+    discountPercent: 10,
+    finalPrice: 630000,
+    imageUrl: "/images/sql.jpg",
+    shortDescription: "Thiết kế CSDL & SQL thực chiến",
+    longDescription: "T-SQL, PostgreSQL, MySQL, thiết kế schema, index, join, tối ưu truy vấn.",
+    infoCourse: {
+      lessonsCount: 40,
+      hoursCount: 30,
+      studentsCount: 600,
+      exercisesCount: 15,
+    },
     isFavorite: false,
-    tags: ["Algorithm", "DSA", "Coding"]
+    tags: ["SQL", "Database"],
   },
   {
     id: "9",
-    name: "Khóa học Git & Github",
-    price: 800000,
-    discountPercent: 10,
-    finalPrice: 720000,
-    imageUrl: "/assets/git-course.png",
-    shortDescription: "Git basics, branch, merge, pull request, CI/CD.",
-    longDescription: "Version control, teamwork, workflow chuẩn, deploy project.",
-    lessonsCount: 30,
-    hoursCount: 20,
-    studentsCount: 3100,
-    exercisesCount: 50,
-    isFavorite: true,
-    tags: ["Git", "Tools", "DevOps"]
+    name: "DevOps & CI/CD",
+    price: 1300000,
+    discountPercent: 20,
+    finalPrice: 1040000,
+    imageUrl: "/images/devops.jpg",
+    shortDescription: "Học triển khai DevOps, Docker, CI/CD",
+    longDescription: "Docker, Kubernetes basics, GitHub Actions, Jenkins pipeline.",
+    infoCourse: {
+      lessonsCount: 55,
+      hoursCount: 45,
+      studentsCount: 700,
+      exercisesCount: 18,
+    },
+    isFavorite: false,
+    tags: ["DevOps", "CI/CD", "Docker"],
   },
   {
     id: "10",
-    name: "Khóa học UI/UX Design",
-    price: 2800000,
-    discountPercent: 30,
-    finalPrice: 1960000,
-    imageUrl: "/assets/ui-ux.png",
-    shortDescription: "Figma, wireframe, prototype, design system.",
-    longDescription: "Thiết kế giao diện web/app, UX writing, research, testing.",
-    lessonsCount: 50,
-    hoursCount: 40,
-    studentsCount: 1700,
-    exercisesCount: 70,
+    name: "UI/UX Design",
+    price: 800000,
+    discountPercent: 15,
+    finalPrice: 680000,
+    imageUrl: "/images/uiux.jpg",
+    shortDescription: "Thiết kế UI/UX từ A-Z",
+    longDescription: "Figma, wireframe, prototype, design system, user research.",
+    infoCourse: {
+      lessonsCount: 35,
+      hoursCount: 25,
+      studentsCount: 500,
+      exercisesCount: 10,
+    },
     isFavorite: false,
-    tags: ["UI", "UX", "Design"]
-  }
+    tags: ["Design", "UI/UX", "Figma"],
+  },
 ];
