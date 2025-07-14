@@ -26,7 +26,7 @@ export const products: IProduct[] = [
     price: 1000000,
     discountPercent: 20,
     finalPrice: 800000,
-    imageUrl: "/images/react.jpg",
+    imageUrl: "/assets/logo.png",
     shortDescription: "Học React từ cơ bản đến nâng cao",
     longDescription: "Khóa học React đầy đủ: JSX, Hooks, Context, Router, Redux...",
     infoCourse: {
