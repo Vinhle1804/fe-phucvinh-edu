@@ -1,4 +1,6 @@
+"use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { NAVIGATE_MENUS } from "@/constants/navigate-menu";
@@ -7,13 +9,27 @@ import { Heart, PersonStanding, ShoppingCart } from "lucide-react";
 import MobileNav from "./component/nav-mobile";
 
 export default function Header() {
+  const [hideMobileSearch, setHideMobileSearch] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 60) {
+        setHideMobileSearch(true);
+      } else {
+        setHideMobileSearch(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <header className="sticky top-0 left-0 w-full bg-white shadow z-50">
       <div className="container mx-auto max-w-[1200px] flex flex-col xl:flex-row justify-between items-center h-auto xl:h-[80px] px-4 py-2">
-        {/* ------------------- DESKTOP ------------------- */}
+        {/*DESKTOP*/}
         <div className="hidden xl:flex justify-between items-center w-full">
-          {/* Logo */}
-          <Link href="/home" className="relative w-[50px] h-[50px]">
+          <Link href="/home" className="relative w-[80px] h-[80px]">
             <Image
               src="/assets/logo.png"
               alt="Logo"
@@ -58,7 +74,6 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Icons */}
           <div className="flex items-center gap-4">
             <SearchBar />
 
@@ -88,16 +103,14 @@ export default function Header() {
           </div>
         </div>
 
-        {/* ------------------- MOBILE ------------------- */}
+        {/*MOBILE*/}
         <div className="flex flex-col w-full xl:hidden">
-          {/* Top Row: Menu | Logo | Cart */}
           <div className="flex w-full items-center justify-between">
-            {/* Menu icon */}
             <MobileNav />
 
-            <Link href="/home" className="relative w-[100px] h-[80px]">
+            <Link href="/home" className="relative w-[50px] h-[50px]">
               <Image
-                src="/assets/education-logo-design_11453434.png"
+                src="/assets/logo.png"
                 alt="Logo"
                 fill
                 className="object-contain"
@@ -105,6 +118,19 @@ export default function Header() {
               />
             </Link>
             <div className="flex items-center gap-2">
+              <Link
+                href="/wishlist"
+                className="flex items-center gap-2 text-black"
+              >
+                <Heart />
+              </Link>
+
+              <Link
+                href="/profile"
+                className="flex items-center gap-2 text-black"
+              >
+                <PersonStanding />
+              </Link>
               <Link
                 href="/cart"
                 className="text-black hover:text-gray-600 p-2 relative"
@@ -114,26 +140,14 @@ export default function Header() {
                   0
                 </span>
               </Link>
-              <Link
-                href="/profile"
-                className="flex items-center gap-2 text-black"
-              >
-                <PersonStanding />
-              </Link>
-
-              <Link
-                href="/wishlist"
-                className="flex items-center gap-2 text-black"
-              >
-                <Heart />
-              </Link>
             </div>
           </div>
 
-          {/* Search bar below */}
-          <div className=" flex justify-center">
-            <SearchBar defaultOpen />
-          </div>
+          {!hideMobileSearch && (
+            <div className="flex justify-center">
+              <SearchBar defaultOpen />
+            </div>
+          )}
         </div>
       </div>
     </header>

@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 export function SearchBar({ defaultOpen = false }: { defaultOpen?: boolean }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
@@ -21,29 +19,39 @@ export function SearchBar({ defaultOpen = false }: { defaultOpen?: boolean }) {
 
   return (
     <div className="relative flex items-center">
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "w-48" : "w-0"
-        }`}
-      >
-        <Input
-          ref={inputRef}
+      {/* //mobile */}
+      <div className="flex xl:hidden items-center bg-white border border-gray-300 rounded-full pl-4 pr-2 py-1 w-full overflow-hidden">
+        <input
           type="text"
-          placeholder="Tìm sản phẩm"
-          className="w-full"
+          placeholder="Tìm sản phẩm..."
+          className="bg-transparent outline-none flex-1 text-sm"
         />
+        <Search size={18} className="text-gray-600" />
       </div>
 
-       
-        <Button
+      {/* //desktop */}
+      <div
+        className={`hidden xl:flex items-center transition-all duration-300 bg-white border border-gray-300 rounded-full overflow-hidden ${
+          isOpen ? "w-64 pl-4 pr-2 py-1" : "w-10 p-0.5"
+        }`}
+      >
+        <input
+          ref={inputRef}
+          type="text"
+          placeholder="Tìm sản phẩm..."
+          className={`bg-transparent outline-none flex-1 text-sm ${
+            isOpen ? "block" : "hidden"
+          }`}
+        />
+
+        <button
           type="button"
-          variant="outline"
           onClick={handleToggle}
-          className="ml-2"
+          className="flex items-center justify-center w-8 h-8 text-gray-600 hover:text-black"
         >
-          <Search />
-        </Button>
-      
+          {isOpen ? <X size={18} /> : <Search size={18} />}
+        </button>
+      </div>
     </div>
   );
 }
