@@ -34,9 +34,8 @@ export default function ProductModal({ product }: Props) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all font-semibold shadow-lg hover:shadow-xl text-sm sm:text-base">
+        <button title="Xem chi tiết" className="flex-1 flex items-center justify-center  gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all font-semibold shadow-lg hover:shadow-xl text-sm sm:text-base">
           <Eye className="w-4 h-4" />
-          <span className="hidden sm:inline">Xem chi tiết</span>
           <span className="sm:hidden">Chi tiết</span>
         </button>
       </DialogTrigger>
