@@ -71,11 +71,11 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Price */}
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-2xl font-bold text-red-600">
+     <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-4">
+          <span className="text-xl sm:text-2xl font-bold text-red-600">
             {product.finalPrice.toLocaleString()} VNĐ
           </span>
-          <span className="text-gray-400 line-through text-lg">
+          <span className="text-gray-400 line-through text-base sm:text-lg">
             {product.price.toLocaleString()} VNĐ
           </span>
         </div>
@@ -84,7 +84,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="flex gap-2">
        <ProductModal product={product} />
 
-          <button className="px-4 py-2.5 border border-red-300 text-red-600 rounded-lg hover:bg-red-50 transition-colors">
+          <button className="hidden sm:block lg:block px-4 py-2.5 border border-red-300 text-red-600 rounded-lg hover:bg-red-50 transition-colors">
             <Heart className="w-4 h-4" />
           </button>
 
