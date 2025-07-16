@@ -11,10 +11,11 @@ import {
 } from "lucide-react";
 import { IProduct } from "@/data/products";
 import ProductModal from "./product-modal";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/redux/store";
 import { toast } from "sonner";
 import { addToCart } from "@/redux/slide/cartSlide";
+import { toggleWishlist } from "@/redux/slide/wishListSlide";
 
 interface ProductCardProps {
   product: IProduct;
@@ -23,14 +24,22 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const { lessonsCount, hoursCount, studentsCount } = product.infoCourse;
   const dispatch = useDispatch<AppDispatch>();
+  const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
+  const isWishlisted = wishlist.some((item) => item.id === product.id);
+  const handleToggleWishlist = () => {
+    dispatch(toggleWishlist(product));
+  };
 
   const handleAddToCart = () => {
-    dispatch(addToCart({
-      id: product.id, quantity: 1,
-      name: product.name,
-      price: product.finalPrice,
-      image: product.imageUrl,
-    }));
+    dispatch(
+      addToCart({
+        id: product.id,
+        quantity: 1,
+        name: product.name,
+        price: product.finalPrice,
+        image: product.imageUrl,
+      })
+    );
     toast.success(" Thêm vào giỏ hàng!");
   };
 
@@ -93,8 +102,15 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="flex gap-2 mt-auto ">
           <ProductModal product={product} />
 
-          <button className="hidden sm:block px-3 py-2 sm:px-4 sm:py-2.5 border border-red-300 text-red-600 rounded-lg hover:bg-red-50 transition-colors">
-            <Heart className="w-3 h-3 sm:w-4 sm:h-4" />
+          <button
+            onClick={handleToggleWishlist}
+            className={`p-2 rounded-full ${
+              isWishlisted
+                ? "bg-red-500 text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+          >
+            <Heart  className="w-3 h-3 sm:w-4 sm:h-4" />
           </button>
 
           <button

@@ -51,12 +51,8 @@ export default function ProductList() {
           <CarouselNext className="hidden sm:flex -right-4 lg:-right-6 bg-white/90 hover:bg-white border-white/20 text-blue-600 hover:text-blue-700 shadow-lg hover:shadow-xl transition-all duration-200" />
         </Carousel>
 
-        {/* Mobile Navigation Hint */}
-        <div className="sm:hidden mt-4 text-center">
-          <p className="text-blue-100 text-sm"> Vuốt để xem thêm khóa học</p>
-        </div>
-              {/* Mobile Navigation Hint */}
-        <div className="hidden md:block mt-4 text-center">
+ 
+        <div className="mt-4 text-center">
          <Link href={"/course"} className="text-blue-100 text-sm">
          <p className="text-blue-100 text-sm"> Click để xem thêm khóa học</p>
          

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header/header";
-import Footer from "@/components/layout/footer";
+import Footer from "@/components/layout/footer/footer";
 import ReduxProvider from "@/redux/redux-provider";
 import { Toaster } from "sonner";
 
