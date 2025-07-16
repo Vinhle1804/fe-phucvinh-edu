@@ -5,10 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { NAVIGATE_MENUS } from "@/constants/navigate-menu";
 import { SearchBar } from "./component/search-bar";
-import { Heart, PersonStanding, ShoppingCart } from "lucide-react";
+import {  PersonStanding, ShoppingCart } from "lucide-react";
 import MobileNav from "./component/nav-mobile";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import WishList from "@/app/wish-list/wish-list";
 
 export default function Header() {
   const [hideMobileSearch, setHideMobileSearch] = useState(false);
@@ -89,12 +90,8 @@ const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
               <PersonStanding />
             </Link>
 
-            <Link
-              href="/wishlist"
-              className="text-black hover:text-gray-600 p-2 flex items-center gap-1"
-            >
-              <Heart />
-            </Link>
+                    <WishList/>
+
 
             <Link
               href="/cart"
@@ -123,12 +120,8 @@ const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
               />
             </Link>
             <div className="flex items-center gap-2">
-              <Link
-                href="/wishlist"
-                className="flex items-center gap-2 text-black"
-              >
-                <Heart />
-              </Link>
+
+              <WishList/>
 
               <Link
                 href="/profile"

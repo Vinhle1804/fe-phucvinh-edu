@@ -1,4 +1,4 @@
-import ProductCard from "@/app/product/component/product-card";
+import ProductCard from "@/app/(product)/component/product-card";
 import {
   Carousel,
   CarouselContent,
@@ -6,7 +6,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { products } from "@/data/products";
+import { PRODUCTS } from "@/data/products";
+import Link from "next/link";
 
 export default function ProductList() {
   return (
@@ -33,7 +34,7 @@ export default function ProductList() {
           className="w-full"
         >
           <CarouselContent className="-ml-2 sm:-ml-4">
-            {products.map((product) => (
+            {PRODUCTS.map((product) => (
               <CarouselItem
                 key={product.id}
                 className="pl-2 sm:pl-4 basis-1/2 lg:basis-2/9"
@@ -53,6 +54,13 @@ export default function ProductList() {
         {/* Mobile Navigation Hint */}
         <div className="sm:hidden mt-4 text-center">
           <p className="text-blue-100 text-sm"> Vuốt để xem thêm khóa học</p>
+        </div>
+              {/* Mobile Navigation Hint */}
+        <div className="hidden md:block mt-4 text-center">
+         <Link href={"/course"} className="text-blue-100 text-sm">
+         <p className="text-blue-100 text-sm"> Click để xem thêm khóa học</p>
+         
+         </Link> 
         </div>
       </div>
 

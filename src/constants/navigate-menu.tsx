@@ -15,9 +15,10 @@ export const NAVIGATE_MENUS: INavigateItem[] = [
   {
     id: "2",
     label: "Khoa học",
+    path: "/khoa-hoc",
     children: [
-      { id: "2.1", label: "English", path: "/san-pham" },
-      { id: "2.2", label: "Lap trinh", path: "/khuyen-mai" },
+      { id: "2.1", label: "English", path: "/course-lap-trinh" },
+      { id: "2.2", label: "Lap trinh", path: "/course-lap-trinh" },
       { id: "2.3", label: "Khoa hoc cho 2k8", path: "/khuyen-mai" },
       { id: "2.4", label: "Chup anh", path: "/khuyen-mai" },
     ],

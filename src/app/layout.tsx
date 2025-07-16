@@ -23,15 +23,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable}  antialiased`}>
-    <ReduxProvider>
-      <Header />
-        {children}
-        <Toaster/>
-        <Footer />
- </ReduxProvider>
-  
+      <body className={`${inter.variable} antialiased min-h-screen flex flex-col`}>
+        <ReduxProvider>
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Toaster />
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );
 }
+

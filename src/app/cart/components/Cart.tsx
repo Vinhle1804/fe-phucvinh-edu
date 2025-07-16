@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
 import { removeItem } from "@/redux/slide/cartSlide";
 import Image from "next/image";
+import Link from "next/link";
 
-// Type cho 1 sản phẩm trong giỏ
 interface CartItem {
   id: number | string;
   name: string;
@@ -31,9 +31,24 @@ export default function Cart() {
     <div className="max-w-4xl mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4">Giỏ hàng của bạn</h1>
 
-      {cartItems.length === 0 ? (
-        <p>Giỏ hàng trống.</p>
-      ) : (
+{cartItems.length === 0 ? (
+  <div className="flex flex-col items-center justify-center py-12 px-4">
+    <Image
+      src="/cartEmpty.png"
+      alt="Giỏ hàng trống"
+      width={250}
+      height={250}
+      className="mb-6"
+    />
+    <h2 className="text-xl font-semibold text-gray-800 mb-2">Giỏ hàng trống</h2>
+    <p className="text-gray-500 mb-6">Bạn chưa có sản phẩm nào trong giỏ hàng.</p>
+    <Link href="/">
+      <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition">
+        Tiếp tục mua sắm
+      </button>
+    </Link>
+  </div>
+): (
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Cart Items - Left side on PC, Top on Mobile */}
           <div className="flex-1 bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-xl shadow-sm">
