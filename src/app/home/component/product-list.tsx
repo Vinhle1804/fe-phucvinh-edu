@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function ProductList() {
   return (
-    <div className="w-full px-4 py-6  sm:px-6 lg:px-8 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-2xl shadow-xl">
+    <div className="w-full px-4 py-6  sm:px-6 lg:px-8  bg-gradient-to-r from-blue-500 to-teal-500   rounded-2xl shadow-xl">
       {/* Header */}
       <div className="mb-6 text-center">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">

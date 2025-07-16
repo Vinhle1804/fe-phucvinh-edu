@@ -15,12 +15,12 @@ export const NAVIGATE_MENUS: INavigateItem[] = [
   {
     id: "2",
     label: "Khoa học",
-    path: "/khoa-hoc",
+    path: "/course",
     children: [
-      { id: "2.1", label: "English", path: "/course-lap-trinh" },
-      { id: "2.2", label: "Lap trinh", path: "/course-lap-trinh" },
-      { id: "2.3", label: "Khoa hoc cho 2k8", path: "/khuyen-mai" },
-      { id: "2.4", label: "Chup anh", path: "/khuyen-mai" },
+      { id: "2.1", label: "English", path: "/course" },
+      { id: "2.2", label: "Lap trinh", path: "/course" },
+      { id: "2.3", label: "Khoa hoc cho 2k8", path: "/course" },
+      { id: "2.4", label: "Chup anh", path: "/course" },
     ],
   },
   {

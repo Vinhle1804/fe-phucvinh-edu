@@ -35,7 +35,7 @@ export default function WishList() {
 
       <SheetContent
         side="right"
-        className="w-full max-w-full sm:w-[90%] sm:max-w-none md:w-[500px] lg:w-[600px] p-0 overflow-hidden bg-gradient-to-br from-white to-gray-50"
+        className="rounded-lg w-full max-w-full sm:w-[90%] sm:max-w-none md:w-[500px] lg:w-[600px] p-6 overflow-hidden bg-gradient-to-br from-white to-gray-50"
       >
         <SheetHeader className="px-6 py-4 border-b bg-white/80 backdrop-blur-sm">
           <SheetTitle className="text-xl font-bold bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent flex items-center gap-2">
@@ -97,24 +97,23 @@ export default function WishList() {
                           {item.finalPrice.toLocaleString()} VND
                         </p>
                       )}
-            
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-row gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <ProductModal product={item} />
+                    <div className="flex flex-row gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                      <ProductModal product={item} />
 
                       <button
                         onClick={() => {
                           // Add to cart logic here
-                          console.log('Add to cart:', item.id);
+                          console.log("Add to cart:", item.id);
                         }}
-                        className="p-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+                        className="hidden sm:block p-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 "
                         title="Thêm vào giỏ hàng"
                       >
                         <ShoppingCart className="w-4 h-4" />
                       </button>
-                      
+
                       <button
                         onClick={() => handleRemoveItem(item.id)}
                         className="p-2 rounded-full bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
@@ -122,7 +121,6 @@ export default function WishList() {
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
-
                     </div>
                   </div>
 
@@ -136,12 +134,12 @@ export default function WishList() {
           {/* Action Buttons for Non-Empty Wishlist */}
           {wishlist.length > 0 && (
             <div className="sticky bottom-0 bg-white/80 backdrop-blur-sm border-t mt-6 pt-4 space-y-2">
-            
-              
               <button
                 onClick={() => {
                   // Clear wishlist logic
-                  wishlist.forEach(item => dispatch(removeFromWishlist(Number(item.id))));
+                  wishlist.forEach((item) =>
+                    dispatch(removeFromWishlist(Number(item.id)))
+                  );
                 }}
                 className="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2"
               >
@@ -152,8 +150,6 @@ export default function WishList() {
           )}
         </div>
       </SheetContent>
-
-    
     </Sheet>
   );
 }

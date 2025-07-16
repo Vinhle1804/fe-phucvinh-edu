@@ -10,12 +10,13 @@ import MobileNav from "./component/nav-mobile";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import WishList from "@/app/wish-list/wish-list";
+import AISuggestionButton from "@/app/home/component/product-AI-suggest";
 
 export default function Header() {
   const [hideMobileSearch, setHideMobileSearch] = useState(false);
   const cart = useSelector((state: RootState) => state.cart.cart);
 
-const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,8 +91,7 @@ const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
               <PersonStanding />
             </Link>
 
-                    <WishList/>
-
+            <WishList />
 
             <Link
               href="/cart"
@@ -120,8 +120,7 @@ const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
               />
             </Link>
             <div className="flex items-center gap-2">
-
-              <WishList/>
+              <WishList />
 
               <Link
                 href="/profile"
@@ -147,6 +146,8 @@ const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
             </div>
           )}
         </div>
+        
+          <AISuggestionButton/>
       </div>
     </header>
   );

@@ -24,8 +24,9 @@ import {
 } from "@/components/ui/dialog";
 import { addToCart } from "@/redux/slide/cartSlide";
 import { toast } from "sonner";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/redux/store";
+import { toggleWishlist } from "@/redux/slide/wishListSlide";
 
 interface Props {
   product: IProduct;
@@ -33,6 +34,12 @@ interface Props {
 
 export default function ProductModal({ product }: Props) {
   const dispatch = useDispatch<AppDispatch>();
+    const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
+  const isWishlisted = wishlist.some((item) => item.id === product.id);
+    const handleToggleWishlist = () => {
+      dispatch(toggleWishlist(product));
+    };
+  
 
   const { lessonsCount, hoursCount, studentsCount, exercisesCount } =
     product.infoCourse;
@@ -191,13 +198,16 @@ export default function ProductModal({ product }: Props) {
                     <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
                     Thêm vào giỏ hàng
                   </button>
-                  <button className="sm:flex-shrink-0 p-3 sm:p-3.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center">
-                    <Heart
-                      className={`w-4 h-4 sm:w-5 sm:h-5 ${
-                        product.isFavorite ? "fill-red-500 text-red-500" : ""
-                      }`}
-                    />
-                  </button>
+                 <button
+            onClick={handleToggleWishlist}
+            className={`p-4 rounded-full ${
+              isWishlisted
+                ? "bg-red-500 text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+          >
+            <Heart  className="w-3 h-3 sm:w-4 sm:h-4" />
+          </button>
                 </div>
               </div>
             </div>
