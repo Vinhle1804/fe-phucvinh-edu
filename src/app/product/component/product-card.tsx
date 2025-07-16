@@ -11,6 +11,10 @@ import {
 } from "lucide-react";
 import { IProduct } from "@/data/products";
 import ProductModal from "./product-modal";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { toast } from "sonner";
+import { addToCart } from "@/redux/slide/cartSlide";
 
 interface ProductCardProps {
   product: IProduct;
@@ -18,10 +22,15 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { lessonsCount, hoursCount, studentsCount } = product.infoCourse;
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ id: product.id, quantity: 1 }));
+    toast.success("✅ Thêm vào giỏ hàng!");
+  };
 
   return (
     <div className="w-full h-full bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl cursor-pointer min-h-[380px] sm:min-h-[420px]">
-      {/* Image */}
       <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0">
         <Image
           src={product.imageUrl}
@@ -35,13 +44,11 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </div>
 
-      {/* Content */}
       <div className="flex flex-col flex-1 p-3 sm:p-4">
         <h3 className="text-gray-800 font-bold text-sm sm:text-base md:text-lg mb-2 sm:mb-3 leading-tight line-clamp-2">
           {product.name}
         </h3>
 
-        {/* Stats */}
         <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-4 text-xs sm:text-sm text-gray-600">
           <div className="flex items-center gap-1">
             <FileText className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500" />
@@ -57,7 +64,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        {/* Rating */}
         <div className="flex items-center gap-1 sm:gap-2 mb-3 sm:mb-4">
           <div className="flex items-center gap-1">
             {[1, 2, 3, 4, 5].map((star) => (
@@ -70,7 +76,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           <span className="text-xs sm:text-sm text-gray-600">(4.8)</span>
         </div>
 
-        {/* Price */}
         <div className="flex flex-col gap-1 mb-3 sm:mb-4">
           <span className="text-base sm:text-lg md:text-xl font-bold text-red-600">
             {product.finalPrice.toLocaleString()} VNĐ
@@ -80,7 +85,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           </span>
         </div>
 
-        {/* Actions */}
         <div className="flex gap-2 mt-auto">
           <ProductModal product={product} />
 
@@ -88,7 +92,10 @@ export default function ProductCard({ product }: ProductCardProps) {
             <Heart className="w-3 h-3 sm:w-4 sm:h-4" />
           </button>
 
-          <button className="px-3 py-2 sm:px-4 sm:py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+          <button
+            onClick={handleAddToCart}
+            className="px-3 py-2 sm:px-4 sm:py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+          >
             <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />
           </button>
         </div>

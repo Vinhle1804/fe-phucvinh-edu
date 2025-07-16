@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header/header";
 import Footer from "@/components/layout/footer";
+import ReduxProvider from "@/redux/redux-provider";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -22,9 +24,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable}  antialiased`}>
-        <Header />
+    <ReduxProvider>
+      <Header />
         {children}
+        <Toaster/>
         <Footer />
+ </ReduxProvider>
+  
       </body>
     </html>
   );

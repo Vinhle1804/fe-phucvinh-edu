@@ -6,7 +6,7 @@ export type InfoCourse = {
 };
 
 export interface IProduct {
-  id: string;                  // ID duy nhất
+  id: number;                  // ID duy nhất
   name: string;                // Tên sản phẩm / khoá học
   price: number;               // Giá gốc
   discountPercent: number;     // % giảm giá
@@ -21,7 +21,7 @@ export interface IProduct {
 
 export const products: IProduct[] = [
   {
-    id: "1",
+    id: 1,
     name: "React Masterclass",
     price: 1000000,
     discountPercent: 20,
@@ -39,7 +39,7 @@ export const products: IProduct[] = [
     tags: ["React", "Frontend", "JavaScript"],
   },
   {
-    id: "2",
+    id: 2,
     name: "Vue 3 Essentials",
     price: 900000,
     discountPercent: 15,
@@ -57,7 +57,7 @@ export const products: IProduct[] = [
     tags: ["Vue", "Frontend"],
   },
   {
-    id: "3",
+    id: 3,
     name: "Next.js & TailwindCSS",
     price: 1200000,
     discountPercent: 25,
@@ -75,7 +75,7 @@ export const products: IProduct[] = [
     tags: ["Next.js", "TailwindCSS", "React"],
   },
   {
-    id: "4",
+    id: 4,
     name: "Node.js Backend",
     price: 950000,
     discountPercent: 10,
@@ -93,7 +93,7 @@ export const products: IProduct[] = [
     tags: ["Node.js", "Backend", "API"],
   },
   {
-    id: "5",
+    id: 5,
     name: "Fullstack MERN",
     price: 1500000,
     discountPercent: 30,
@@ -111,7 +111,7 @@ export const products: IProduct[] = [
     tags: ["MERN", "Fullstack", "React"],
   },
   {
-    id: "6",
+    id: 6,
     name: "Java Spring Boot",
     price: 1100000,
     discountPercent: 20,
@@ -129,7 +129,7 @@ export const products: IProduct[] = [
     tags: ["Java", "Spring Boot", "Backend"],
   },
   {
-    id: "7",
+    id: 7,
     name: "Python Django",
     price: 1000000,
     discountPercent: 15,
@@ -147,7 +147,7 @@ export const products: IProduct[] = [
     tags: ["Python", "Django", "Backend"],
   },
   {
-    id: "8",
+    id: 8,
     name: "SQL & Database Design",
     price: 700000,
     discountPercent: 10,
@@ -165,7 +165,7 @@ export const products: IProduct[] = [
     tags: ["SQL", "Database"],
   },
   {
-    id: "9",
+    id: 9,
     name: "DevOps & CI/CD",
     price: 1300000,
     discountPercent: 20,
@@ -183,7 +183,7 @@ export const products: IProduct[] = [
     tags: ["DevOps", "CI/CD", "Docker"],
   },
   {
-    id: "10",
+    id: 10,
     name: "UI/UX Design",
     price: 800000,
     discountPercent: 15,
