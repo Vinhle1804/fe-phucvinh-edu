@@ -1,37 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎓 EduCommerce AI - Frontend
 
-## Getting Started
+Đây là **dự án kiểm tra Front-end**: Xây dựng **giao diện sàn thương mại điện tử giáo dục** với tính năng **AI gợi ý thông minh**, cho phép người dùng **tìm kiếm**, **lọc**, **xem chi tiết**, **quản lý danh sách yêu thích**, và **khám phá sản phẩm giáo dục** (khoá học, giáo trình, tài liệu).
 
-First, run the development server:
+---
+
+## 📌 Tính năng chính
+✅ Thiết kế UI hiện đại, responsive mọi thiết bị  
+✅ Hiển thị danh sách sản phẩm 
+✅ Tìm kiếm và lọc theo tên, giá  
+✅ Gợi ý sản phẩm thông minh (AI)
+✅ Modal chi tiết sản phẩm với thông tin đầy đủ  
+✅ Quản lý sản phẩm yêu thích  
+✅ Trang riêng xem danh sách đã yêu thích  
+✅ Loading Skeleton & xử lý lỗi API  
+
+
+---
+
+
+
+## 🚀 Hướng dẫn cài đặt
+
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/Vinhle1804/fe-phucvinh-edu.git
+cd fe-phucvinh-edu
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+npm i
+npm run build
+npm run start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+🌐 Công nghệ chính
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Next.js (App Router)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+React
 
-## Deploy on Vercel
+TailwindCSS
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Redux Toolkit (nếu cần)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# hi, i'm phucvinh
+
+Lucide React (icons)
+
+)
+
+💻 Tác giả
+Tên bạn
+📧 Email: lephucvinh184@gmail.com
+
+
