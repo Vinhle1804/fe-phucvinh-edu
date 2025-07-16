@@ -10,7 +10,7 @@ import { products } from "@/data/products";
 
 export default function ProductList() {
   return (
-    <div className="w-full px-4 py-6 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-2xl shadow-xl">
+    <div className="w-full px-4 py-6  sm:px-6 lg:px-8 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 rounded-2xl shadow-xl">
       {/* Header */}
       <div className="mb-6 text-center">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
@@ -36,7 +36,7 @@ export default function ProductList() {
             {products.map((product) => (
               <CarouselItem
                 key={product.id}
-                className="pl-2 sm:pl-4 basis-2/5 lg:basis-2/9"
+                className="pl-2 sm:pl-4 basis-1/2 lg:basis-2/9"
               >
                 <div className="h-full">
                   <ProductCard product={product} />
@@ -52,7 +52,7 @@ export default function ProductList() {
 
         {/* Mobile Navigation Hint */}
         <div className="sm:hidden mt-4 text-center">
-          <p className="text-blue-100 text-sm">👆 Vuốt để xem thêm khóa học</p>
+          <p className="text-blue-100 text-sm"> Vuốt để xem thêm khóa học</p>
         </div>
       </div>
 

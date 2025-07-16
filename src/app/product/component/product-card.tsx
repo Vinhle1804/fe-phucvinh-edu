@@ -25,8 +25,13 @@ export default function ProductCard({ product }: ProductCardProps) {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ id: product.id, quantity: 1 }));
-    toast.success("✅ Thêm vào giỏ hàng!");
+    dispatch(addToCart({
+      id: product.id, quantity: 1,
+      name: product.name,
+      price: product.finalPrice,
+      image: product.imageUrl,
+    }));
+    toast.success(" Thêm vào giỏ hàng!");
   };
 
   return (
@@ -85,7 +90,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </span>
         </div>
 
-        <div className="flex gap-2 mt-auto">
+        <div className="flex gap-2 mt-auto ">
           <ProductModal product={product} />
 
           <button className="hidden sm:block px-3 py-2 sm:px-4 sm:py-2.5 border border-red-300 text-red-600 rounded-lg hover:bg-red-50 transition-colors">
@@ -96,7 +101,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             onClick={handleAddToCart}
             className="px-3 py-2 sm:px-4 sm:py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
           >
-            <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />
+            <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4 z-50" />
           </button>
         </div>
       </div>

@@ -22,14 +22,29 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { addToCart } from "@/redux/slide/cartSlide";
+import { toast } from "sonner";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
 
 interface Props {
   product: IProduct;
 }
 
 export default function ProductModal({ product }: Props) {
+  const dispatch = useDispatch<AppDispatch>();
+
   const { lessonsCount, hoursCount, studentsCount, exercisesCount } =
     product.infoCourse;
+      const handleAddToCart = (product: IProduct) => {
+    dispatch(addToCart({
+      id: product.id, quantity: 1,
+      name: product.name,
+      price: product.finalPrice,
+      image: product.imageUrl,
+    }));
+    toast.success("Thêm vào giỏ hàng!");
+  };
 
   return (
     <Dialog>
@@ -170,7 +185,9 @@ export default function ProductModal({ product }: Props) {
                 
                 {/* Buttons */}
                 <div className="flex flex-row gap-2 ">
-                  <button className="flex-1 flex items-center justify-center gap-2 px-4 py-3 sm:py-3.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all font-semibold shadow-lg hover:shadow-xl text-sm sm:text-base">
+                  <button 
+                  onClick={() => handleAddToCart(product)}
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 sm:py-3.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all font-semibold shadow-lg hover:shadow-xl text-sm sm:text-base">
                     <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
                     Thêm vào giỏ hàng
                   </button>

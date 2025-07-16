@@ -7,9 +7,14 @@ import { NAVIGATE_MENUS } from "@/constants/navigate-menu";
 import { SearchBar } from "./component/search-bar";
 import { Heart, PersonStanding, ShoppingCart } from "lucide-react";
 import MobileNav from "./component/nav-mobile";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 export default function Header() {
   const [hideMobileSearch, setHideMobileSearch] = useState(false);
+  const cart = useSelector((state: RootState) => state.cart.cart);
+
+const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +34,7 @@ export default function Header() {
       <div className="container mx-auto max-w-[1200px] flex flex-col xl:flex-row justify-between items-center h-auto xl:h-[80px] px-4 py-2">
         {/*DESKTOP*/}
         <div className="hidden xl:flex justify-between items-center w-full">
-          <Link href="/home" className="relative w-[80px] h-[80px]">
+          <Link href="/" className="relative w-[80px] h-[80px]">
             <Image
               src="/assets/logo.png"
               alt="Logo"
@@ -97,7 +102,7 @@ export default function Header() {
             >
               <ShoppingCart />
               <span className="absolute -top-1 -right-1 bg-yellow-400 text-black text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                0
+                {cartCount}
               </span>
             </Link>
           </div>
@@ -137,7 +142,7 @@ export default function Header() {
               >
                 <ShoppingCart />
                 <span className="absolute -top-1 -right-1 bg-yellow-400 text-black text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                  0
+                  {cartCount}
                 </span>
               </Link>
             </div>
