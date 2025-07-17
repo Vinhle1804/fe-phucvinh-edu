@@ -48,7 +48,7 @@ export const PRODUCTS: IProduct[] = [
     price: 900000,
     discountPercent: 15,
     finalPrice: 765000,
-    imageUrl: "/images/vue.jpg",
+    imageUrl: "/assets/vue.png",
     shortDescription: "Học Vue 3 Composition API dễ hiểu",
     longDescription: "Nắm vững Vue 3, Composition API, Vue Router, Vuex, Pinia...",
     infoCourse: {
@@ -67,7 +67,7 @@ export const PRODUCTS: IProduct[] = [
     price: 1200000,
     discountPercent: 25,
     finalPrice: 900000,
-    imageUrl: "/images/next-tailwind.jpg",
+    imageUrl: "/assets/nexttail.png",
     shortDescription: "Xây web hiện đại với Next.js & TailwindCSS",
     longDescription: "Tạo web tối ưu SEO, SSR, API routes, thiết kế Tailwind đẹp mắt.",
     infoCourse: {
@@ -87,7 +87,7 @@ export const PRODUCTS: IProduct[] = [
     price: 500000,
     discountPercent: 20,
     finalPrice: 400000,
-    imageUrl: "/images/english.jpg",
+    imageUrl: "/assets/tienganh.jpg",
     shortDescription: "Giao tiếp tiếng Anh cơ bản",
     longDescription: "Ngữ pháp, phát âm, phản xạ giao tiếp hằng ngày.",
     infoCourse: {
@@ -106,7 +106,7 @@ export const PRODUCTS: IProduct[] = [
     price: 1200000,
     discountPercent: 15,
     finalPrice: 1020000,
-    imageUrl: "/images/ielts.jpg",
+    imageUrl: "/assets/ielts.png",
     shortDescription: "Luyện thi IELTS từ 5.0 lên 7.5+",
     longDescription: "Phát âm, kỹ năng Writing, Speaking, Listening, Reading.",
     infoCourse: {
@@ -125,7 +125,7 @@ export const PRODUCTS: IProduct[] = [
     price: 1000000,
     discountPercent: 20,
     finalPrice: 800000,
-    imageUrl: "/images/business-english.jpg",
+    imageUrl: "/assets/beng.png",
     shortDescription: "Tiếng Anh thương mại, đàm phán & thuyết trình",
     longDescription: "Soạn email, trình bày dự án, từ vựng chuyên ngành.",
     infoCourse: {
@@ -144,7 +144,7 @@ export const PRODUCTS: IProduct[] = [
     price: 700000,
     discountPercent: 10,
     finalPrice: 630000,
-    imageUrl: "/images/javascript.jpg",
+    imageUrl: "/assets/javascript.jpg",
     shortDescription: "Lập trình JavaScript từ con số 0",
     longDescription: "Biến, hàm, vòng lặp, DOM, ES6.",
     infoCourse: {
@@ -163,7 +163,7 @@ export const PRODUCTS: IProduct[] = [
     price: 800000,
     discountPercent: 15,
     finalPrice: 680000,
-    imageUrl: "/images/typescript.jpg",
+    imageUrl: "/assets/typescript.jpg",
     shortDescription: "Từ JS sang TS chuyên nghiệp",
     longDescription: "Kiểu dữ liệu, interface, generics, project TS.",
     infoCourse: {
@@ -182,9 +182,9 @@ export const PRODUCTS: IProduct[] = [
     price: 600000,
     discountPercent: 30,
     finalPrice: 420000,
-    imageUrl: "/images/early-react.jpg",
-    shortDescription: "Khóa sớm, ưu đãi React Hook chuyên sâu",
-    longDescription: "useState, useEffect, custom hook, best practices.",
+    imageUrl: "/assets/xuatphatsom.jpg",
+    shortDescription: "Khóa sớm, ưu đãi chuyên sâu",
+    longDescription: "toan, ly, hoa, 30+.",
     infoCourse: {
       lessonsCount: 20,
       hoursCount: 15,
@@ -201,7 +201,7 @@ export const PRODUCTS: IProduct[] = [
     price: 500000,
     discountPercent: 25,
     finalPrice: 375000,
-    imageUrl: "/images/early-python.jpg",
+    imageUrl: "/assets/python.jpeg",
     shortDescription: "Khóa Python cơ bản - đăng ký sớm giảm giá",
     longDescription: "Biến, điều kiện, vòng lặp, project mini.",
     infoCourse: {
@@ -212,7 +212,7 @@ export const PRODUCTS: IProduct[] = [
     },
     isFavorite: false,
     tags: ["Python", "Earlybird"],
-    type: "earlybird",
+    type: "programming",
   },
   {
     id: 18,
@@ -220,7 +220,7 @@ export const PRODUCTS: IProduct[] = [
     price: 900000,
     discountPercent: 10,
     finalPrice: 810000,
-    imageUrl: "/images/photography1.jpg",
+    imageUrl: "/assets/photography.jpg",
     shortDescription: "Chụp ảnh cơ bản cho người mới",
     longDescription: "Cách sử dụng máy, ánh sáng, bố cục cơ bản.",
     infoCourse: {
@@ -239,7 +239,7 @@ export const PRODUCTS: IProduct[] = [
     price: 1200000,
     discountPercent: 20,
     finalPrice: 960000,
-    imageUrl: "/images/photography2.jpg",
+    imageUrl: "/assets/photography2.jpg",
     shortDescription: "Kỹ thuật chụp ảnh nâng cao",
     longDescription: "Phơi sáng, lens, hậu kỳ Lightroom cơ bản.",
     infoCourse: {
@@ -258,7 +258,7 @@ export const PRODUCTS: IProduct[] = [
     price: 1000000,
     discountPercent: 15,
     finalPrice: 850000,
-    imageUrl: "/images/portrait.jpg",
+    imageUrl: "/assets/photography.jpg",
     shortDescription: "Chụp chân dung chuyên nghiệp",
     longDescription: "Setup ánh sáng, chỉnh màu, retouch chân dung.",
     infoCourse: {
@@ -277,7 +277,7 @@ export const PRODUCTS: IProduct[] = [
     price: 800000,
     discountPercent: 20,
     finalPrice: 640000,
-    imageUrl: "/images/ielts-speaking.jpg",
+    imageUrl: "/assets/ielts.png",
     shortDescription: "Nâng điểm Speaking IELTS",
     longDescription: "Practice Speaking với Native, phản xạ tự nhiên.",
     infoCourse: {
@@ -299,7 +299,7 @@ export const AISuggestProduct: IProduct[] = [
     price: 2000000,
     discountPercent: 20,
     finalPrice: 1600000,
-    imageUrl: "/assets/courses/english-basic.jpg",
+    imageUrl: "/assets/beng.png",
     shortDescription: "Học tiếng Anh giao tiếp cơ bản cho người mới bắt đầu.",
     longDescription:
       "Khoá học giúp bạn tự tin giao tiếp tiếng Anh với các tình huống hàng ngày, hướng dẫn phát âm chuẩn và phản xạ nhanh.",
@@ -319,7 +319,7 @@ export const AISuggestProduct: IProduct[] = [
     price: 5000000,
     discountPercent: 30,
     finalPrice: 3500000,
-    imageUrl: "/assets/courses/programming-fullstack.jpg",
+    imageUrl: "/assets/fullstack.jpeg",
     shortDescription: "Khoá học lập trình web từ A-Z với HTML, CSS, JS, NodeJS.",
     longDescription:
       "Nắm vững kiến thức và thực hành xây dựng các dự án web thực tế. Phù hợp cho người mới hoặc đã có kiến thức cơ bản.",
@@ -335,11 +335,11 @@ export const AISuggestProduct: IProduct[] = [
   },
   {
     id: 3,
-    name: "Early Bird: Học Tập Thông Minh",
+    name: "Early Bird: Học Tập Thông Minh Cho 2k8",
     price: 1500000,
     discountPercent: 10,
     finalPrice: 1350000,
-    imageUrl: "/assets/courses/earlybird.jpg",
+    imageUrl: "/assets/xuatphatsom.jpg",
     shortDescription: "Khám phá phương pháp học tập hiệu quả dành cho Early Bird.",
     longDescription:
       "Khoá học dành cho những bạn muốn phát triển kỹ năng quản lý thời gian, tối ưu hoá việc học buổi sáng, tập trung và ghi nhớ tốt hơn.",
@@ -359,7 +359,7 @@ export const AISuggestProduct: IProduct[] = [
     price: 3000000,
     discountPercent: 25,
     finalPrice: 2250000,
-    imageUrl: "/assets/courses/photography-portrait.jpg",
+    imageUrl: "/assets/photography2.jpg",
     shortDescription: "Nắm vững kỹ thuật chụp ảnh chân dung và chỉnh sửa hậu kỳ.",
     longDescription:
       "Khoá học hướng dẫn các kỹ thuật chụp chân dung đẹp, bố cục ánh sáng và chỉnh sửa chuyên sâu để tạo ra các bức ảnh ấn tượng.",
@@ -379,7 +379,7 @@ export const AISuggestProduct: IProduct[] = [
     price: 2500000,
     discountPercent: 15,
     finalPrice: 2125000,
-    imageUrl: "/assets/courses/english-programmers.jpg",
+    imageUrl: "/assets/english-programmers.jpg",
     shortDescription: "Học tiếng Anh chuyên ngành công nghệ thông tin.",
     longDescription:
       "Khoá học này tập trung vào từ vựng, ngữ pháp và kỹ năng giao tiếp cần thiết cho lập trình viên làm việc trong môi trường quốc tế.",

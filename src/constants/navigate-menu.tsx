@@ -8,30 +8,29 @@ export interface INavigateItem {
 export const NAVIGATE_MENUS: INavigateItem[] = [
   {
     id: "1",
-    label: "Gioi thiệu",
+    label: "Giới thiệu",
     path: "/gioi-thieu",
-
   },
   {
     id: "2",
-    label: "Khoa học",
+    label: "Khóa học",
     path: "/course",
     children: [
       { id: "2.1", label: "English", path: "/course" },
-      { id: "2.2", label: "Lap trinh", path: "/course" },
-      { id: "2.3", label: "Khoa hoc cho 2k8", path: "/course" },
-      { id: "2.4", label: "Chup anh", path: "/course" },
+      { id: "2.2", label: "Lập trình", path: "/course" },
+      { id: "2.3", label: "Khóa học cho 2k8", path: "/course" },
+      { id: "2.4", label: "Chụp ảnh", path: "/course" },
     ],
   },
   {
     id: "3",
-    label: "Tu luyen",
-path: "/tu-luyen",
+    label: "Tự luyện",
+    path: "/tu-luyen",
   },
   {
     id: "4",
-    label: "Tai lieu",
-  path: "/tai-lieu",
+    label: "Tài liệu",
+    path: "/tai-lieu",
   },
   {
     id: "5",
