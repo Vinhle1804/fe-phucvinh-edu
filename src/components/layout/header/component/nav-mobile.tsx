@@ -10,6 +10,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { NAVIGATE_MENUS } from "@/constants/navigate-menu";
+import { AlignLeft } from "lucide-react";
 
 export default function MobileNav() {
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
@@ -21,7 +22,7 @@ export default function MobileNav() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <button className="p-2 border rounded">☰</button>
+        <button className="p-2 border rounded"><AlignLeft/></button>
       </SheetTrigger>
 
       <SheetContent side="left" className="p-4">

@@ -5,12 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { NAVIGATE_MENUS } from "@/constants/navigate-menu";
 import { SearchBar } from "./component/search-bar";
-import {  PersonStanding, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import MobileNav from "./component/nav-mobile";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import WishList from "@/app/wish-list/wish-list";
 import AISuggestionButton from "@/app/home/component/product-AI-suggest";
+import Profile from "@/app/profile/profile";
 
 export default function Header() {
   const [hideMobileSearch, setHideMobileSearch] = useState(false);
@@ -83,13 +84,14 @@ export default function Header() {
 
           <div className="flex items-center gap-4">
             <SearchBar />
+            <Profile />
 
-            <Link
+            {/* <Link
               href="/profile"
               className="text-black hover:text-gray-600 p-2"
             >
               <PersonStanding />
-            </Link>
+            </Link> */}
 
             <WishList />
 
@@ -121,13 +123,14 @@ export default function Header() {
             </Link>
             <div className="flex items-center gap-2">
               <WishList />
+              <Profile />
 
-              <Link
+              {/* <Link
                 href="/profile"
                 className="flex items-center gap-2 text-black"
               >
                 <PersonStanding />
-              </Link>
+              </Link> */}
               <Link
                 href="/cart"
                 className="text-black hover:text-gray-600 p-2 relative"
@@ -146,8 +149,8 @@ export default function Header() {
             </div>
           )}
         </div>
-        
-          <AISuggestionButton/>
+
+        <AISuggestionButton />
       </div>
     </header>
   );

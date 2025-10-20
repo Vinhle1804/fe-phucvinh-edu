@@ -19,43 +19,51 @@ const slidesMobile = [
 
 export default function CarouselPage() {
   return (
-    <div className="pt-2 container mx-auto">
-      <Carousel className="hidden md:block w-full max-w-[1200px] mx-auto relative rounded-lg overflow-hidden">
-        <CarouselContent>
+    <div className="pt-2 px-0 container mx-auto max-w-7xl">
+      {/* Desktop Carousel */}
+      <Carousel className="hidden md:block w-full mx-auto">
+        <CarouselContent className="-ml-2 md:-ml-4">
           {slidesDesktop.map((src, index) => (
-            <CarouselItem key={`desktop-${index}`} className="relative flex items-center justify-center w-full overflow-hidden h-[300px] lg:h-[500px]">
-              <Image
-                src={src}
-                alt={`Desktop Slide ${index + 1}`}
-                fill
-                className="object-cover rounded-lg"
-                sizes="100vw"
-              />
+            <CarouselItem key={`desktop-${index}`} className="pl-2 md:pl-4">
+              <div className="relative w-full h-[300px] lg:h-[500px] rounded-lg overflow-hidden">
+                <Image
+                  src={src}
+                  alt={`Desktop Slide ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                  priority={index === 0}
+                />
+              </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-
-        <CarouselPrevious className="..." />
-        <CarouselNext className="..." />
+        
+        <CarouselPrevious className="left-4" />
+        <CarouselNext className="right-4" />
       </Carousel>
 
-      <Carousel className="block md:hidden w-full max-w-[1200px] mx-auto relative">
-        <CarouselContent>
+      {/* Mobile Carousel */}
+      <Carousel className="block md:hidden w-full mx-auto">
+        <CarouselContent className="-ml-2">
           {slidesMobile.map((src, index) => (
-            <CarouselItem key={`mobile-${index}`} className="relative flex items-center justify-center w-full overflow-hidden h-[800px]">
-              <Image
-                src={src}
-                alt={`Mobile Slide ${index + 1}`}
-                fill
-                className="object-cover rounded-lg"
-                sizes="100vw"
-              />
+            <CarouselItem key={`mobile-${index}`} className="pl-2">
+              <div className="relative w-full h-[600px] sm:h-[700px] rounded-lg overflow-hidden">
+                <Image
+                  src={src}
+                  alt={`Mobile Slide ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  priority={index === 0}
+                />
+              </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-
-        <CarouselPrevious className="..." />
-        <CarouselNext className="..." />
+        
+        <CarouselPrevious className="left-2" />
+        <CarouselNext className="right-2" />
       </Carousel>
     </div>
   )
